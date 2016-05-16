@@ -1,0 +1,30 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 21
+    buildToolsVersion "22.0.1"
+
+    defaultConfig {
+        applicationId "edu.uoregon.bbird.weatherdemo"
+        minSdkVersion 15
+        targetSdkVersion 19
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+        }
+
+        repositories {
+            maven { url 'http://ksoap2-android.googlecode.com/svn/m2-repo' }
+        }
+    }
+}
+
+
+
+dependencies {
+    compile 'com.android.support:support-v4:21.0.3'
+    compile 'com.google.code.ksoap2-android:ksoap2-android:3.3.0'
+}
