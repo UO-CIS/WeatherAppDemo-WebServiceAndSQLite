@@ -6,22 +6,8 @@ package edu.uoregon.bbird.weatherdemo;
 // http://stackoverflow.com/questions/5457699/cursor-adapter-and-sqlite-example
 // http://developer.android.com/reference/android/widget/SimpleCursorAdapter.html
 
-import java.io.IOException;
-import java.net.Proxy;
-
-import org.ksoap2.SoapEnvelope;
-import org.ksoap2.serialization.SoapObject;
-import org.ksoap2.serialization.SoapSerializationEnvelope;
-import org.ksoap2.transport.HttpResponseException;
-import org.ksoap2.transport.HttpTransportSE;
-import org.xmlpull.v1.XmlPullParserException;
-
-import edu.uoregon.bbird.weatherdemo.R;
 import android.app.Activity;
-import android.content.DialogInterface;
-import android.content.DialogInterface.OnKeyListener;
 import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.widget.SimpleCursorAdapter;
@@ -35,6 +21,16 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.TextView.OnEditorActionListener;
 import android.widget.Toast;
+
+import org.ksoap2.SoapEnvelope;
+import org.ksoap2.serialization.SoapObject;
+import org.ksoap2.serialization.SoapSerializationEnvelope;
+import org.ksoap2.transport.HttpResponseException;
+import org.ksoap2.transport.HttpTransportSE;
+import org.xmlpull.v1.XmlPullParserException;
+
+import java.io.IOException;
+import java.net.Proxy;
 
 public class  MainActivity extends Activity
 				implements OnItemClickListener, OnEditorActionListener {
@@ -138,7 +134,7 @@ public class  MainActivity extends Activity
 			ht.debug = true;
 			
 			try {
-				ht.call("http://ws.cdyne.com/WeatherWS/GetCityForecastByZIP", envelope);
+				ht.call("98370", envelope);
 			} catch (HttpResponseException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
