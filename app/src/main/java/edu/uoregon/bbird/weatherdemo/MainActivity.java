@@ -114,6 +114,7 @@ public class  MainActivity extends Activity
 
 	
 	/*** Background task to get a forecast from the web service ***/
+	/*   Web service info: http://graphical.weather.gov/xml/
 	private class WeatherTask extends AsyncTask<String, Void, String> {
 	
 		@Override
@@ -130,7 +131,7 @@ public class  MainActivity extends Activity
 			
 			// Send the request (call the SOAP method)
 			HttpTransportSE ht = new HttpTransportSE(Proxy.NO_PROXY,
-					"http://wsf.cdyne.com/WeatherWS/Weather.asmx", 5000);
+					"http://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl", 5000);
 			ht.setXmlVersionTag("<!--?xml version=\"1.0\" encoding= \"UTF-8\" ?-->");
 			ht.debug = true;
 			
