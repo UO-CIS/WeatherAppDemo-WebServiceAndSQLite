@@ -125,16 +125,17 @@ public class  MainActivity extends Activity
 			
 			SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(SoapEnvelope.VER12);
 			envelope.dotNet = true;
+			envelope.implicitTypes = true;
 			envelope.setOutputSoapObject(request);
 			
 			// Send the request (call the SOAP method)
 			HttpTransportSE ht = new HttpTransportSE(Proxy.NO_PROXY,
-					"http://wsf.cdyne.com/WeatherWS/Weather.asmx", 60000);
+					"http://wsf.cdyne.com/WeatherWS/Weather.asmx", 5000);
 			ht.setXmlVersionTag("<!--?xml version=\"1.0\" encoding= \"UTF-8\" ?-->");
 			ht.debug = true;
 			
 			try {
-				ht.call("98370", envelope);
+				ht.call("http://ws.cdyne.com/WeatherWS/GetCityForecastByZIP", envelope);
 			} catch (HttpResponseException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
